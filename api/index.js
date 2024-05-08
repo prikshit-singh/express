@@ -7,12 +7,12 @@ const app = express()
 const bodyParser = require('body-parser');
 
 
-const createBlog = require('./apis/blog/createBlog')
-const updateBlogContent = require('./apis/blog/updateBlogContent')
-const getAllBlogs = require('./apis/blog/getAllBlogs')
-const getBlogWithId = require('./apis/blog/getBlogWithId')
-const editBlog = require('./apis/blog/editBlog')
-const postblog = require('./apis/blog/postblog')
+//const createBlog = require('./apis/blog/createBlog')
+//const updateBlogContent = require('./apis/blog/updateBlogContent')
+//const getAllBlogs = require('./apis/blog/getAllBlogs')
+//const getBlogWithId = require('./apis/blog/getBlogWithId')
+//const editBlog = require('./apis/blog/editBlog')
+//const postblog = require('./apis/blog/postblog')
 // const moveToBin = require('./apis/blog/moveToBin')
 // const getBinBlogs = require('./apis/blog/getBinBlogs')
 // const deleteFromBin = require('./apis/blog/deleteFromBin')
