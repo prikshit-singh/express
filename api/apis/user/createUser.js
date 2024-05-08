@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const User = require('../../models/userSchema/adminSchema')
-const Roles = require('../../models/settings/roles/roles')
+//const Roles = require('../../models/settings/roles/roles')
 
 const bcryptjs = require('bcrypt');
 
@@ -34,7 +34,7 @@ const createAdmin = app.post('/createadminuser', async (req, res) => {
 
         }
 
-        let userRole = await Roles.find({ title: 'admin' })
+       // let userRole = await Roles.find({ title: 'admin' })
 
         const newUser = new User({
             // Any other user data you want to save
@@ -46,7 +46,7 @@ const createAdmin = app.post('/createadminuser', async (req, res) => {
             phone: `${Date.now()}`,
             email: email,
             password: hashPassword,
-            roles: userRole[0] ? userRole[0]._id : [],
+            roles:  [],
             isvarify: 'true',
             isvarifiedWriter: '',
             settings: [],
