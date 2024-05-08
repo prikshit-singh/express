@@ -12,8 +12,8 @@ const getBlogWithId = require('./apis/blog/getBlogWithId')
 const editBlog = require('./apis/blog/editBlog')
 const postblog = require('./apis/blog/postblog')
 
-app.use(express.static('./files'));
-app.use(express.static('./uploads'));
+//app.use(express.static('./files'));
+//app.use(express.static('./uploads'));
 
 // const root = require('path').join(__dirname,  'build');
 
@@ -41,29 +41,20 @@ app.get('/',  async (req, res) => {
 
 })
 
-app.get('/files', (req, res) => {
-  const filename = req.headers.filename;
-  const filePath = path.join(process.cwd(), `files/${filename}`)
-
-
-  if (fs.existsSync(filePath)) {
-    // Set appropriate headers
-    // res.setHeader('Content-Type', 'text/plain');
-
-    // const fileStream = fs.createReadStream(filePath);
-    // console.log('success123', fileStream.pipe(res))
-    // fileStream.pipe(res);
-
-    const data = fs.readFile(filePath, (err, data) => {
-        console.log(data)
-        const data1 = {CODE:200,data:data}
-        res.send(data1)
-     })
-  } else {
-     console.log(error)
-    res.status(200).json({ CODE: 200, data:'file not found'});
-  }
-});
+// app.get('/files', (req, res) => {
+//   const filename = req.headers.filename;
+//   const filePath = path.join(process.cwd(), `files/${filename}`)
+//   if (fs.existsSync(filePath)) {
+//     const data = fs.readFile(filePath, (err, data) => {
+//         console.log(data)
+//         const data1 = {CODE:200,data:data}
+//         res.send(data1)
+//      })
+//   } else {
+//      console.log(error)
+//     res.status(200).json({ CODE: 200, data:'file not found'});
+//   }
+// });
 
 app.listen(4002, function () {
   console.log('Https App started 4002');
