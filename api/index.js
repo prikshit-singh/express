@@ -5,12 +5,12 @@ const path = require('path');
 const fs = require('fs');
 const connectDB = require('./config/dbconfig/dbconfig')
 const app = express()
-// const createBlog = require('./apis/blog/createBlog')
-// const updateBlogContent = require('./apis/blog/updateBlogContent')
-// const getAllBlogs = require('./apis/blog/getAllBlogs')
-// const getBlogWithId = require('./apis/blog/getBlogWithId')
-// const editBlog = require('./apis/blog/editBlog')
-// const postblog = require('./apis/blog/postblog')
+const createBlog = require('../apis/blog/createBlog')
+const updateBlogContent = require('../apis/blog/updateBlogContent')
+const getAllBlogs = require('../apis/blog/getAllBlogs')
+const getBlogWithId = require('../apis/blog/getBlogWithId')
+const editBlog = require('../apis/blog/editBlog')
+const postblog = require('../apis/blog/postblog')
 
 //app.use(express.static('./files'));
 //app.use(express.static('./uploads'));
