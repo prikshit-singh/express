@@ -1,6 +1,6 @@
 require('dotenv').config();
 const express = require('express')
-const cors = require('cors')
+//const cors = require('cors')
 
 const connectDB = require('./config/dbconfig/dbconfig')
 const app = express()
@@ -31,7 +31,7 @@ const authenticateToken = require('./apis/user/verifyUser')
 // app.use(express.static('../../next_project/next_project/public'));
 app.use(express.static('./files'));
 app.use(express.static('./uploads'));
-app.use(cors())
+//app.use(cors())
 // app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.json({ limit: '50mb' }));
