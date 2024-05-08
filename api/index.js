@@ -20,7 +20,8 @@ app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true, parameterLimit: 50000 }));
 connectDB()
 
-
+app.use(createAdmin)
+app.use(login)
 app.get('/',  async (req, res) => {
   res.status(200).json({ CODE: 200, result: 'success' })
 
