@@ -22,6 +22,15 @@ connectDB()
 
 app.use(createAdmin)
 app.use(login)
+
+app.use(createBlog)
+app.use(updateBlogContent)
+app.use(editBlog)
+app.use(postblog)
+app.use(getAllBlogs)
+app.use(getBlogWithId)
+
+
 app.get('/',  async (req, res) => {
   res.status(200).json({ CODE: 200, result: 'success' })
 
