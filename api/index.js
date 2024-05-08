@@ -75,13 +75,6 @@ app.get('/files', (req, res) => {
 
 
   if (fs.existsSync(filePath)) {
-    // Set appropriate headers
-    // res.setHeader('Content-Type', 'text/plain');
-
-    // const fileStream = fs.createReadStream(filePath);
-    // console.log('success123', fileStream.pipe(res))
-    // fileStream.pipe(res);
-
     const data = fs.readFile(filePath, (err, data) => {
         console.log(data)
         const data1 = {CODE:200,data:data}
