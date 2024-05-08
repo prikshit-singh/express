@@ -43,12 +43,12 @@ const root = require('path').join(__dirname,  'build');
 app.use(express.static(root));
 
 
-app.use(createBlog)
-app.use(updateBlogContent)
-app.use(editBlog)
-app.use(postblog)
-app.use(getAllBlogs)
-app.use(getBlogWithId)
+//app.use(createBlog)
+//app.use(updateBlogContent)
+//app.use(editBlog)
+//app.use(postblog)
+//app.use(getAllBlogs)
+//app.use(getBlogWithId)
 // app.use(moveToBin)
 // app.use(getBinBlogs)
 // app.use(restoreBlogWithId)
