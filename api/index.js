@@ -5,12 +5,12 @@ const path = require('path');
 const fs = require('fs');
 const connectDB = require('./config/dbconfig/dbconfig')
 const app = express()
-const createBlog = require('./apis/blog/createBlog')
-const updateBlogContent = require('./apis/blog/updateBlogContent')
-const getAllBlogs = require('./apis/blog/getAllBlogs')
-const getBlogWithId = require('./apis/blog/getBlogWithId')
-const editBlog = require('./apis/blog/editBlog')
-const postblog = require('./apis/blog/postblog')
+// const createBlog = require('./apis/blog/createBlog')
+// const updateBlogContent = require('./apis/blog/updateBlogContent')
+// const getAllBlogs = require('./apis/blog/getAllBlogs')
+// const getBlogWithId = require('./apis/blog/getBlogWithId')
+// const editBlog = require('./apis/blog/editBlog')
+// const postblog = require('./apis/blog/postblog')
 
 //app.use(express.static('./files'));
 //app.use(express.static('./uploads'));
@@ -25,15 +25,15 @@ app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true, parameterLimit: 50000 }));
 connectDB()
 
-app.use(createAdmin)
-app.use(login)
+// app.use(createAdmin)
+// app.use(login)
 
-app.use(createBlog)
-app.use(updateBlogContent)
-app.use(editBlog)
-app.use(postblog)
-app.use(getAllBlogs)
-app.use(getBlogWithId)
+// app.use(createBlog)
+// app.use(updateBlogContent)
+// app.use(editBlog)
+// app.use(postblog)
+// app.use(getAllBlogs)
+// app.use(getBlogWithId)
 
 
 app.get('/',  async (req, res) => {
