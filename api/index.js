@@ -15,11 +15,11 @@ const postblog = require('./apis/blog/postblog')
 app.use(express.static('./files'));
 app.use(express.static('./uploads'));
 
-const root = require('path').join(__dirname,  'build');
+// const root = require('path').join(__dirname,  'build');
 
-app.use(express.static(root));
+// app.use(express.static(root));
 
-app.use(cors())
+// app.use(cors())
 app.use(bodyParser.json());
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true, parameterLimit: 50000 }));
