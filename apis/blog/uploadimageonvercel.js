@@ -4,26 +4,27 @@ const app = express()
 
 const uploadimageonvercel = app.post('/uploadimageonvercel',  async (req, res) => {
   try {
-    //  const jsonResponse = await handleUpload({
-    //   body:req.body,
-    //   req,
-    //   onBeforeGenerateToken: async (pathname /*, clientPayload */) => {
+     const jsonResponse = await handleUpload({
+      body:req.body,
+       token: process.env.BLOB_READ_WRITE_TOKEN,
+      req,
+      onBeforeGenerateToken: async (pathname /*, clientPayload */) => {
         
-    //     return {
-    //       allowedContentTypes: ['image/jpeg', 'image/png', 'image/gif'],
-    //     };
-    //   },
-    //   onUploadCompleted: async ({ blob, tokenPayload }) => {
+        return {
+          allowedContentTypes: ['image/jpeg', 'image/png', 'image/gif'],
+        };
+      },
+      onUploadCompleted: async ({ blob, tokenPayload }) => {
  
-    //     console.log('blob upload completed', blob);
+        console.log('blob upload completed', blob);
  
-    //     try {
-    //       // await db.update({ avatar: blob.url, userId });
-    //     } catch (error) {
-    //       throw new Error('Could not update user');
-    //     }
-    //   },
-    // });
+        try {
+          // await db.update({ avatar: blob.url, userId });
+        } catch (error) {
+          throw new Error('Could not update user');
+        }
+      },
+    });
  
     return req.status(200).send(req.body);
   } catch (error) {
