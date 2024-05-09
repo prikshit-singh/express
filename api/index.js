@@ -8,6 +8,7 @@ const bodyParser = require('body-parser');
 
 
 const createBlog = require('../apis/blog/createBlog')
+const uploadimageonvercel = require('../apis/blog/uploadimageonvercel')
 const updateBlogContent = require('../apis/blog/updateBlogContent')
 const getAllBlogs = require('../apis/blog/getAllBlogs')
 const getBlogWithId = require('../apis/blog/getBlogWithId')
@@ -44,6 +45,7 @@ app.use(express.static(root));
 
 
 app.use(createBlog)
+app.use(uploadimageonvercel)
 app.use(updateBlogContent)
 app.use(editBlog)
 app.use(postblog)
