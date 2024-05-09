@@ -28,7 +28,8 @@ const uploadimageonvercel = app.post('/uploadimageonvercel',  async (req, res) =
  
     return req.status(200).send(req.body);
   } catch (error) {
-    res.status(200).send({CODE:400 ,message:'No file uploaded'});
+     return req.status(200).send(req.body);
+    // res.status(200).send({CODE:400 ,message:'No file uploaded'});
   }
 
  
