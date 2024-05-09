@@ -25,7 +25,7 @@ const productStorage = multer.diskStorage({
 var ProductUpload = multer({ storage: productStorage });
 
 
-const createBlog = app.post('/createblog', authenticateToken, ProductUpload.single('BlogImage'), async (req, res) => {
+const createBlog = app.post('/createblog', ProductUpload.single('BlogImage'), async (req, res) => {
   try {
     const BlogTitle = req.body.BlogTitle
     const BlogKeywords = req.body.BlogKeywords
