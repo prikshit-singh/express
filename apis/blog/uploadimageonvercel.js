@@ -4,29 +4,30 @@ const app = express()
 
 const uploadimageonvercel = app.post('/uploadimageonvercel',  async (req, res) => {
   try {
-     const jsonResponse = await handleUpload({
-      body:req.body,
-       token: process.env.BLOB_READ_WRITE_TOKEN,
-      req,
+     const { callbackUrl, multipart, pathname } = req.body.payload;
+
+    // Check if multipart is true and handle accordingly
+    const options = multipart
+      ? { body: req.body, req }
+      : { file: req.body, req };
+
+    const jsonResponse = await handleUpload({
+      ...options,
+      token: process.env.BLOB_READ_WRITE_TOKEN, // Pass token option
       onBeforeGenerateToken: async (pathname /*, clientPayload */) => {
-        
         return {
           allowedContentTypes: ['image/jpeg', 'image/png', 'image/gif'],
         };
       },
       onUploadCompleted: async ({ blob, tokenPayload }) => {
- 
         console.log('blob upload completed', blob);
- 
-        try {
-          // await db.update({ avatar: blob.url, userId });
-        } catch (error) {
-          throw new Error('Could not update user');
-        }
+        // Here you can perform actions with the uploaded blob, such as storing its URL in a database
+        // Example: await db.update({ avatar: blob.url, userId });
       },
     });
- 
-    return req.status(200).send(req.body);
+
+    // Send response with JSON containing information about the uploaded image
+    res.status(200).json(jsonResponse);
   } catch (error) {
      return req.status(200).send(req.body);
     // res.status(200).send({CODE:400 ,message:'No file uploaded'});
