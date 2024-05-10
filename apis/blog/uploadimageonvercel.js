@@ -13,7 +13,7 @@ const updatedPathname = pathname ? `/${pathname}` : '/uploads/';
 
     const file = req.body
 
-    console.log('file',file)
+    console.log('file123',file)
 
     const jsonResponse = await handleUpload({
       file:{...file,name:`uploads/${file.name}`},
