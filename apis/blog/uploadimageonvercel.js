@@ -13,17 +13,8 @@ const updatedPathname = pathname ? `/${pathname}` : '/uploads/';
 
     const file = req.body
 
-    console.log('file123',options)
-    // const newFile = {
-    //   type: file.type,
-    //   payload: {
-    //       pathname: 'Screenshot_2.png',
-    //       callbackUrl: 'https://admin.gitgurus.com/uploadimageonvercel',
-    //       clientPayload: null,
-    //       multipart: true
-    //            }
-    //          }
-    //  console.log('newFile123',newFile)
+    console.log('file123',options.file)
+    
 
     const jsonResponse = await handleUpload({
       ...options,
