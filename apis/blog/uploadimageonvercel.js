@@ -7,27 +7,26 @@ const uploadimageonvercel = app.post('/uploadimageonvercel',  async (req, res) =
      const { callbackUrl, multipart, pathname } = req.body.payload;
 const updatedPathname = pathname ? `/${pathname}` : '/uploads/';
     // Check if multipart is true and handle accordingly
-    // const options = multipart
-    //   ? { body: req.body, req }
-    //   : { file: req.body, req };
+    const options = multipart
+      ? { body: req.body, req }
+      : { file: req.body, req };
 
     const file = req.body
 
-    console.log('file123',file)
-    const newFile = {
-      type: file.type,
-      payload: {
-          pathname: 'Screenshot_2.png',
-          callbackUrl: 'https://admin.gitgurus.com/uploadimageonvercel',
-          clientPayload: null,
-          multipart: true
-               }
-             }
-     console.log('newFile123',newFile)
+    console.log('file123',options)
+    // const newFile = {
+    //   type: file.type,
+    //   payload: {
+    //       pathname: 'Screenshot_2.png',
+    //       callbackUrl: 'https://admin.gitgurus.com/uploadimageonvercel',
+    //       clientPayload: null,
+    //       multipart: true
+    //            }
+    //          }
+    //  console.log('newFile123',newFile)
 
     const jsonResponse = await handleUpload({
-      file,
-      req,
+      ...options,
       token: process.env.BLOB_READ_WRITE_TOKEN, // Pass token option
      
       onBeforeGenerateToken: async (pathname ) => {
