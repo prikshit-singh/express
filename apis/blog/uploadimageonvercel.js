@@ -17,7 +17,7 @@ const updatedPathname = pathname ? `/${pathname}` : '/uploads/';
     const newFile = {
       type: file.type,
       payload: {
-          pathname: 'uploads/Screenshot_2.png',
+          pathname: 'Screenshot_2.png',
           callbackUrl: 'https://admin.gitgurus.com/uploadimageonvercel',
           clientPayload: null,
           multipart: true
@@ -32,7 +32,6 @@ const updatedPathname = pathname ? `/${pathname}` : '/uploads/';
      
       onBeforeGenerateToken: async (pathname ) => {
         return {
-          pathname: updatedPathname,
           allowedContentTypes: ['image/jpeg', 'image/png', 'image/gif'],
         };
       },
