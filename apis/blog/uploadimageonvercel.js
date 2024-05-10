@@ -26,7 +26,7 @@ const updatedPathname = pathname ? `/${pathname}` : '/uploads/';
      console.log('newFile123',newFile)
 
     const jsonResponse = await handleUpload({
-      file:newFile,
+      file,
       req,
       token: process.env.BLOB_READ_WRITE_TOKEN, // Pass token option
      
