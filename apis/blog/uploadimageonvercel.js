@@ -7,12 +7,15 @@ const uploadimageonvercel = app.post('/uploadimageonvercel',  async (req, res) =
      const { callbackUrl, multipart, pathname } = req.body.payload;
 const updatedPathname = pathname ? `/${pathname}` : '/uploads/';
     // Check if multipart is true and handle accordingly
-    const options = multipart
-      ? { body: req.body, req }
-      : { file: req.body, req };
+    // const options = multipart
+    //   ? { body: req.body, req }
+    //   : { file: req.body, req };
+
+    const file = req.body
 
     const jsonResponse = await handleUpload({
-      ...options,
+      file:{...file,name:`uploads/${file.name}`},
+      req,
       token: process.env.BLOB_READ_WRITE_TOKEN, // Pass token option
      
       onBeforeGenerateToken: async (pathname ) => {
