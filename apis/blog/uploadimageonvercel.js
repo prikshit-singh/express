@@ -14,7 +14,7 @@ const uploadimageonvercel = app.post('/uploadimageonvercel',  async (req, res) =
     const jsonResponse = await handleUpload({
       ...options,
       token: process.env.BLOB_READ_WRITE_TOKEN, // Pass token option
-      pathname: '/uploads/' + options.file.name,
+      // pathname: '/uploads/' + options.file.name,
       onBeforeGenerateToken: async (pathname ) => {
         return {
           allowedContentTypes: ['image/jpeg', 'image/png', 'image/gif'],
