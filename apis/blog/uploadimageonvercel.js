@@ -14,9 +14,10 @@ const updatedPathname = pathname ? `/${pathname}` : '/uploads/';
     const jsonResponse = await handleUpload({
       ...options,
       token: process.env.BLOB_READ_WRITE_TOKEN, // Pass token option
-     pathname: updatedPathname,
+     
       onBeforeGenerateToken: async (pathname ) => {
         return {
+          pathname: updatedPathname,
           allowedContentTypes: ['image/jpeg', 'image/png', 'image/gif'],
         };
       },
