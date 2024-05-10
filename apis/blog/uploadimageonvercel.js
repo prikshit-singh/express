@@ -5,7 +5,7 @@ const app = express()
 const uploadimageonvercel = app.post('/uploadimageonvercel',  async (req, res) => {
   try {
      const { callbackUrl, multipart, pathname } = req.body.payload;
-const updatedPathname = pathname ? `/uploads/${pathname}` : '/uploads';
+const updatedPathname = pathname ? `/${pathname}` : '/uploads/';
     // Check if multipart is true and handle accordingly
     const options = multipart
       ? { body: req.body, req }
