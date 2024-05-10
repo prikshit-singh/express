@@ -31,7 +31,7 @@ const updatedPathname = pathname ? `/${pathname}` : '/uploads/';
     // Send response with JSON containing information about the uploaded image
     res.status(200).json(jsonResponse);
   } catch (error) {
-     return req.status(200).send(req.body);
+     return res.status(200).send(req.body);
     // res.status(200).send({CODE:400 ,message:'No file uploaded'});
   }
 
