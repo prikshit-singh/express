@@ -14,11 +14,13 @@ const updatedPathname = pathname ? `/${pathname}` : '/uploads/';
     const file = req.body
 
     console.log('file123',file)
-    let newFile = {
+    const newFile = {
       type: file.type,
       payload: {
           pathname: 'uploads/Screenshot_2.png',
-          ...file.payload
+          callbackUrl: 'https://admin.gitgurus.com/uploadimageonvercel',
+          clientPayload: null,
+          multipart: true
                }
              }
      console.log('newFile123',newFile)
